@@ -1,0 +1,27 @@
+@import url("https://fonts.cdnfonts.com/css/jetbrains-mono");
+@import url("https://fonts.cdnfonts.com/css/cubano");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:root {
+  @apply bg-neutral-800 text-neutral-100;
+  font-family: "JetBrains Mono";
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 6px;
+  border: black solid 1px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #333333;
+  border: black solid 1px;
+  border-radius: 6px;
+}
