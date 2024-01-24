@@ -1,27 +1,24 @@
-# React + TypeScript + Vite
+# HTTPBIN SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a single page application that interacts with this [API](hhttps://github.com/CatalinIuga/HttpBin-API) to create buckets and display the request caught in a more user friendly way.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev` to start the development server
 
-## Expanding the ESLint configuration
+## Interface
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Since it's a SPA, the interface is pretty simple. It has a landing page with a button that creates a bucket, if the user dosent have one already. After that the buttons to extend, test and delete the bucket will appear in the topbar, while the sidebar will display the requests caught by the API. If we select a request, the right side of the screen will display the request headers, body and query parameters in collapsible panels. There is also a button to delete the request from the bucket.
 
-- Configure the top-level `parserOptions` property like this:
+![Landing](public/empty.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+![Interface](public/interface.png)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Technologies
+
+- React
+- Tailwind CSS
+- Vite
+- react-json-view

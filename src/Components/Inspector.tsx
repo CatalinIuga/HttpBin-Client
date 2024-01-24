@@ -161,18 +161,24 @@ const Inspector: React.FC<InspectorProps> = ({ requestId }) => {
 
             <CollapsibleSection title="Query Parameters">
               <div className="flex flex-wrap m-2 gap-2">
-                {Object.entries(request.queryParameters).map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="flex text-lg items-baseline border border-black bg-[#191919] p-2 rounded"
-                  >
-                    <span className="text-blue-500">{key}</span>
-                    <span className="text-orange-500">{"="}</span>
-                    <span className="break-words overflow-hidden">
-                      {value === null ? "null" : value.toString()}
-                    </span>
-                  </div>
-                ))}
+                {Object.keys(request.queryParameters).length > 0 ? (
+                  Object.entries(request.queryParameters).map(
+                    ([key, value]) => (
+                      <div
+                        key={key}
+                        className="flex text-lg items-baseline border border-black bg-[#191919] p-2 rounded"
+                      >
+                        <span className="text-blue-500">{key}</span>
+                        <span className="text-orange-500">{"="}</span>
+                        <span className="break-words overflow-hidden">
+                          {value === null ? "null" : value.toString()}
+                        </span>
+                      </div>
+                    )
+                  )
+                ) : (
+                  <div className="">No parameters</div>
+                )}
               </div>
             </CollapsibleSection>
           </section>

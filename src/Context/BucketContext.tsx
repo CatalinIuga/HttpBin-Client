@@ -8,6 +8,7 @@ import {
 
 interface BucketContextProps {
   bucketId?: string;
+  timeToLive?: number;
   deletedBucket: () => void;
   checkBucket: () => void;
   createBucket: () => void;
@@ -17,6 +18,7 @@ const BucketContext = createContext<BucketContextProps | undefined>(undefined);
 
 const BucketProvider = ({ children }: { children: ReactNode }) => {
   const [bucketId, setBucketId] = useState<string | undefined>();
+  const [timeToLive, setTimeToLive] = useState<number | undefined>();
 
   const checkBucket = async () => {
     try {
@@ -27,6 +29,7 @@ const BucketProvider = ({ children }: { children: ReactNode }) => {
       if (response.ok) {
         const data = await response.json();
         setBucketId(data.bucketId);
+        setTimeToLive(data.timeToLive);
       }
     } catch (error) {
       console.error(error);
@@ -45,6 +48,7 @@ const BucketProvider = ({ children }: { children: ReactNode }) => {
       });
       const data = await response.json();
       setBucketId(data.bucketId);
+      setTimeToLive(data.timeLeft);
     } catch (error) {
       console.error(error);
     }
@@ -56,6 +60,7 @@ const BucketProvider = ({ children }: { children: ReactNode }) => {
 
   const value: BucketContextProps = {
     bucketId,
+    timeToLive,
     deletedBucket,
     checkBucket,
     createBucket,
