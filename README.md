@@ -1,4 +1,6 @@
-# HTTPBIN SPA
+# HTTPBIN 
+
+HttpBin is a simple webhook/request debugger, it creates a "bucket", a unique identifier that maps an endpoint that the user can use to debug requests. Any request sent to that endpoint will be caught and replayed back to the user. Use the bucket identifier with the base URL of the [API](hhttps://github.com/CatalinIuga/HttpBin-API). 
 
 This is a single page application that interacts with this [API](hhttps://github.com/CatalinIuga/HttpBin-API) to create buckets and display the request caught in a more user friendly way.
 
@@ -6,7 +8,7 @@ This is a single page application that interacts with this [API](hhttps://github
 
 1. Clone the repo
 2. Run `npm install`
-3. Run `npm run dev` to start the development server
+3. Run `npm run dev` to start the development server, or build and run a production server using `npm run build; npm run preview`;
 
 ## Interface
 
